@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 RUN npm install
 RUN npm run build
-EXPOSE 3000
+EXPOSE 7777
 CMD [ "npm", "run", "start" ]
 
 ####The line below was used to create the container
