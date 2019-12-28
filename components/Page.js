@@ -4,6 +4,7 @@ import Header from './Header';
 import Meta from './Meta';
 
 const theme = {
+  blue: '#2f70b1',
   red: '#FF0000',
   black: '#393939',
   grey: '#3A3A3A',
