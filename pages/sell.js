@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import CreateItem from "../components/CreateItems"
+import CreateItemHooks from "../components/CreateItemHooks"
 const Sell = props => (
   <div>
-    <CreateItem />
+    <CreateItemHooks />
   </div>
 );
 

@@ -10,7 +10,7 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
     //this expose the query to the users
-    pageProps.quert = ctx.query;
+    pageProps.query = ctx.query;
     return { pageProps }
   }
   render() {
