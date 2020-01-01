@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Title from './styles/Title';
 import ItemStyles from './styles/ItemStyles';
 import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
+import DeleteItem from './DeleteItem';
 
-const Item = (props) => {
+const Item = props => {
   
-    Item.propTypes = {
+  
+  Item.propTypes = {
     item: PropTypes.object.isRequired,
   };
+
     const { item } = props;
     return (
       <ItemStyles>
@@ -39,9 +42,11 @@ const Item = (props) => {
             <a>Edit ✏️</a>
           </Link>
           <button>Add To Cart</button>
-          <button>Delete </button>
+          <DeleteItem id={item.id}>Delete This Item</DeleteItem>
         </div>
       </ItemStyles>
     );
   }
+
   export default Item
+
