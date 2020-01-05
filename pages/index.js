@@ -3,7 +3,7 @@ import { withApollo } from '../lib/apollo'
 
 const Home = props => (
   <div>
-    <Items />
+    <Items page={parseFloat(props.query.page) || 1} />
   </div>
 );
 

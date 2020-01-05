@@ -19,6 +19,7 @@ const DELETE_ITEM_MUTATION = gql`
 `;
 const DeleteItem = props => {
   const client = useApolloClient();
+  
   const [deleteItem, { data, loading, error }] = useMutation(
     DELETE_ITEM_MUTATION,
     {
@@ -35,7 +36,6 @@ const DeleteItem = props => {
 
         console.log({ ...data });
         const lastcache = client.readQuery({ query: ALL_ITEMS_QUERY });
-        console.log(lastcache)
       },
       refetchQueries: [{query: ALL_ITEMS_QUERY}],
     }
