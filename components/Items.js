@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Item from "./Item";
@@ -47,5 +47,5 @@ const Items = props => {
   );
 };
 
-export default withApollo(Items);
 export { ALL_ITEMS_QUERY };
+export default withApollo(Items);

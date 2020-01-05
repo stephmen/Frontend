@@ -1,4 +1,5 @@
 import Items from '../components/Items';
+import { withApollo } from '../lib/apollo'
 
 const Home = props => (
   <div>
@@ -6,4 +7,4 @@ const Home = props => (
   </div>
 );
 
-export default Home;
+export default withApollo(Home);

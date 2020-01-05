@@ -34,10 +34,10 @@ const CreateItemHooks = props => {
     {
       onCompleted(data) {
         console.log(data.createItem.id);
-        Router.push({
-          pathname: "/item",
-          query: { id: data.createItem.id }
-        });
+        // Router.push({
+        //   pathname: "/item",
+        //   query: { id: data.createItem.id }
+        // });
       }
     }
   );
