@@ -1,3 +1,5 @@
+
+
 import styled from 'styled-components';
 
 const NavStyles = styled.ul`
@@ -8,7 +10,7 @@ const NavStyles = styled.ul`
   font-size: 2rem;
   a,
   button {
-    padding: 1rem 3rem;
+    padding: 1rem rem;
     display: flex;
     align-items: center;
     position: relative;

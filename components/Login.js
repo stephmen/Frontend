@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/react-hooks";
@@ -6,7 +7,7 @@ import Router from "next/router";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
 import { CURRENT_USER_QUERY } from './User';
-import { withApollo } from "../lib/apollo";
+import { withApollo } from "../lib/nextApollo";
 
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
@@ -18,8 +19,17 @@ const SIGNIN_MUTATION = gql`
   }
 `;
 
-const Signin = props => {
-  const [signin, {data, loading, errors}] = useMutation(SIGNIN_MUTATION,{refetchQueries:["CURRENT_USER_QUERY"]})
+const Login = props => {
+  const [signin, {data, loading, errors}] = useMutation(
+    SIGNIN_MUTATION, 
+    {
+  refetchQueries:[{query: CURRENT_USER_QUERY}],
+  onCompleted() { 
+    Router.push({
+        pathname: "/items",
+      })   
+    }}
+  )
   const { handleSubmit, register, error, reset } = useForm();
 
   const onSubmit = async(values, e) => {
@@ -29,7 +39,7 @@ const Signin = props => {
           }
       })
       e.target.reset();
-      console.log({ ...values })
+    
   }
  
 
@@ -39,8 +49,7 @@ const Signin = props => {
             
             
             <fieldset disabled={loading} aria-busy={loading}>
-              <h2>Sign In</h2>
-              {/* <Error error={error} /> */}
+              
               <Error error={errors} />
               <label htmlFor="email">
                 Email
@@ -70,17 +79,21 @@ const Signin = props => {
                 />
               </label>
 
-              <button type="submit">Sign In!</button>
+              <button type="submit">Login</button>
               <br></br>
               <br></br>
-              
-              <button type="button" onClick={() => Router.push('/signup')}>Don't have an account ? Click Here</button>
-              
+              <Link href="/signup">
+              <a>Don't have an account ?</a>
+              </Link>
+              <br></br>
+              <br></br>
+              <Link href="/requestreset">
+              <a>Reset Password</a>
+              </Link>
             </fieldset>
           </Form>
         )}
       
     
 
-
-export default Signin;
+export default Login;

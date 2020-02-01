@@ -1,5 +1,6 @@
 import Items from '../components/Items';
-import { withApollo } from '../lib/apollo'
+//import { withApollo } from '../lib/apollo'
+import { withApollo } from '../lib/nextApollo'
 
 const Home = props => (
   <div>

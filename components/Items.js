@@ -59,4 +59,4 @@ const Items = props => {
 
 
 export { ALL_ITEMS_QUERY };
-export default withApollo(Items);
+export default Items;

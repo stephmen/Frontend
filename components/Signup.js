@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/react-hooks";
@@ -5,7 +6,7 @@ import gql from "graphql-tag";
 import Router from "next/router";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
-import { withApollo } from "../lib/apollo";
+import { withApollo } from "../lib/nextApollo";
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
@@ -80,9 +81,14 @@ const Signup = props => {
               <button type="submit">Sign Up!</button>
               <br></br>
               <br></br>
-              
-              <button type="button" onClick={() => Router.push('/signin')}>Already have an accont ? Click Here</button>
-              
+              <Link href="/signup">
+              <a>Don't have an account ?</a>
+              </Link>
+              <br></br>
+              <br></br>
+              <Link href="/requestreset">
+              <a>Reset Password</a>
+              </Link>
             </fieldset>
           </Form>
         )}
@@ -90,4 +96,4 @@ const Signup = props => {
     
 
 
-export default Signup;
+export default withApollo(Signup);

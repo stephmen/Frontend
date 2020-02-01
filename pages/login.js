@@ -1,4 +1,5 @@
 import Signup from '../components/Signup';
+import Login from '../components/Login';
 import styled from 'styled-components';
 
 const Columns = styled.div`
@@ -9,9 +10,7 @@ const Columns = styled.div`
 
 const SignupPage = props => (
   <Columns>
-    <Signup />
-    
-
+    <Login />
   </Columns>
 );
 

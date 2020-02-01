@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Nav from './Nav';
+import { withApollo } from '../lib/apollo';
+
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -44,7 +46,7 @@ const StyledHeader = styled.header`
     align-items: stretch;
     @media (max-width: 1300px) {
       grid-template-columns: 1fr;
-      justify-content: center;
+      // justify-content: center;
     }
   }
   .sub-bar {
@@ -71,4 +73,4 @@ const Header = () => (
   </StyledHeader>
 );
 
-export default Header;
+export default withApollo(Header);
