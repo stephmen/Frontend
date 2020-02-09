@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useApolloClient } from "@apollo/react-hooks";
-import { withApollo } from "../lib/apollo";
+import { withApollo } from "../lib/nextApollo";
 import { ALL_ITEMS_QUERY } from "./Items";
+import { CURRENT_USER_QUERY } from './User';
 import gql from "graphql-tag";
 import { perPage } from '../config';
 
@@ -36,7 +37,7 @@ const DeleteItem = props => {
         });
 
       },
-      refetchQueries: [{query: ALL_ITEMS_QUERY}],
+      refetchQueries: [{query: ALL_ITEMS_QUERY},{query: CURRENT_USER_QUERY}],
     }
   );
 
@@ -59,4 +60,4 @@ const DeleteItem = props => {
   );
 };
 
-export default DeleteItem;
+export default withApollo(DeleteItem);

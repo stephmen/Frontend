@@ -4,6 +4,8 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import Nav from './Nav';
 import { withApollo } from '../lib/apollo';
+import Cart from './Cart';
+import Search from './Search';
 
 
 Router.onRouteChangeStart = () => {
@@ -67,9 +69,9 @@ const Header = () => (
       <Nav />
     </div>
     <div className="sub-bar">
-      <p>Search</p>
     </div>
-    <div>Cart</div>
+    <Search />
+    <Cart />
   </StyledHeader>
 );
 

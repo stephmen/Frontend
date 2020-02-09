@@ -1,14 +1,32 @@
+import React from 'react'
 import Link from "next/link";
+import gql from 'graphql-tag';
+import { useMutation, useQuery } from "@apollo/react-hooks";
+// import { TOGGLE_CART_MUTATION } from './Cart';
 import NavStyles from "./styles/NavStyles";
 import User from "./User";
 import Logout from "./Logout";
+import CartCount from "./CartCount"
+import { withApollo } from '../lib/nextApollo'
 
-const Nav = () => (
-  <User>
-    {({ data }) => {
-      const me = data ? data.me : null;
-      return (
-        <NavStyles>
+const TOGGLE_CART_MUTATION = gql`
+  mutation {
+    toggleCart @client
+  }
+`;
+const Nav = (props) => {
+  
+  
+  
+  
+  const [toggleCart] = useMutation(TOGGLE_CART_MUTATION);
+  
+  return(
+    <User>
+      {({ data }) => {
+        const me = data ? data.me : null;
+        return (
+          <NavStyles>
           <Link href="/items">
             <a>Shop</a>
           </Link>
@@ -23,6 +41,12 @@ const Nav = () => (
               <Link href="/me">
                 <a>Account</a>
               </Link>
+          
+              <button onClick={() => toggleCart()}>My Cart
+              {/* <CartCount count={me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)}></CartCount> */}
+
+              </button>
+              
               <Logout />
             </>
           )}
@@ -34,7 +58,7 @@ const Nav = () => (
         </NavStyles>
       );
     }}
-  </User>
-);
+  </User>)
+};
 
-export default Nav;
+export default withApollo(Nav);
