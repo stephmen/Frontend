@@ -7,31 +7,31 @@ import debounce from 'lodash.debounce';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
 import { withApollo } from '../lib/nextApollo'
 
-// const SEARCH_ITEMS_QUERY = gql`
-//   query SEARCH_ITEMS_QUERY($searchTerm: String!) {
-//     items(where: { title_contains: $searchTerm } ) {
-//       id
-//       image
-//       title
-//     }
-//   }
-// `;
-
 const SEARCH_ITEMS_QUERY = gql`
   query SEARCH_ITEMS_QUERY($searchTerm: String!) {
-    items(where: {
-        OR: [
-          { title_contains: $searchTerm }
-          { description_contains: $searchTerm }
-        ]
-      }
-    ) {
+    items(where: { title_contains: $searchTerm } ) {
       id
       image
       title
     }
   }
 `;
+
+// const SEARCH_ITEMS_QUERY = gql`
+//   query SEARCH_ITEMS_QUERY($searchTerm: String!) {
+//     items(where: {
+//         OR: [
+//           { title_contains: $searchTerm }
+//           { description_contains: $searchTerm }
+//         ]
+//       }
+//     ) {
+//       id
+//       image
+//       title
+//     }
+//   }
+// `;
 
 function routeToItem(item) {
   if(item){
