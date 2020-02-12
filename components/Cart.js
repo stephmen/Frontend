@@ -7,6 +7,9 @@ import Supreme from "./styles/Supreme";
 import CloseButton from "./styles/CloseButton";
 import SickButton from "./styles/SickButton";
 import CartItem from "./CartItem"
+import calcTotalPrice from '../lib/calcTotalPrice';
+import formatMoney from '../lib/formatMoney';
+import TakeMyMoney from './TakeMyMoney';
 import { withApollo } from "../lib/nextApollo";
 
 const LOCAL_STATE_QUERY = gql`
@@ -43,8 +46,12 @@ const Cart = (props) => {
             ))}
           </ul>
           <footer>
-            <p>$10.10</p>
-            <SickButton>Checkout</SickButton>
+          <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+          {me.cart.length && (
+            <TakeMyMoney>
+              <SickButton>Checkout</SickButton>
+            </TakeMyMoney>
+          )}
           </footer>
         </CartStyles>
       );
