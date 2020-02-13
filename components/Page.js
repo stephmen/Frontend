@@ -53,19 +53,19 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-class Page extends Component {
-  render() {
+const Page = (props) => {
+  
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledPage>
           <Meta />
           <Header />
-          <Inner>{this.props.children}</Inner>
+          <Inner>{props.children}</Inner>
         </StyledPage>
       </ThemeProvider>
     );
   }
-}
+
 
 export default withApollo(Page);

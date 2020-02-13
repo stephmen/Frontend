@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useApolloClient } from "@apollo/react-hooks";
 import { withApollo } from "../lib/nextApollo";

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import Router from 'next/router';
 import NProgress from 'nprogress';
+import Router from 'next/router';
 import Nav from './Nav';
 import { withApollo } from '../lib/apollo';
 import Cart from './Cart';
@@ -21,16 +21,16 @@ Router.onRouteChangeError = () => {
 };
 
 const Logo = styled.h1`
-  font-size: 4rem;
+  font-size: 2rem;
   margin-left: 2rem;
   position: relative;
   z-index: 2;
-  transform: skew(-7deg);
+  transform: skew(0deg);
   a {
     padding: 0.5rem 1rem;
     background: ${props => props.theme.blue};
     color: white;
-    // text-transform: uppercase;
+    text-transform: uppercase;
     text-decoration: none;
   }
   @media (max-width: 1300px) {
@@ -42,13 +42,14 @@ const Logo = styled.h1`
 const StyledHeader = styled.header`
   .bar {
     border-bottom: 10px solid ${props => props.theme.black};
-    display: grid;
+    display: flex;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     align-items: stretch;
     @media (max-width: 1300px) {
+      display: grid;
       grid-template-columns: 1fr;
-      // justify-content: center;
+      justify-content: center;
     }
   }
   .sub-bar {
@@ -64,15 +65,15 @@ const Header = () => (
       <Logo>
         <Link href="/">
           <a>MyEccom</a>
-        </Link>
+          </Link>
       </Logo>
       <Nav />
     </div>
     <div className="sub-bar">
+      <Search />
     </div>
-    <Search />
     <Cart />
   </StyledHeader>
 );
 
-export default withApollo(Header);
+export default Header;

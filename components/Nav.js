@@ -2,18 +2,14 @@ import React from 'react'
 import Link from "next/link";
 import gql from 'graphql-tag';
 import { useMutation, useQuery } from "@apollo/react-hooks";
-// import { TOGGLE_CART_MUTATION } from './Cart';
+import { TOGGLE_CART_MUTATION } from './Cart';
 import NavStyles from "./styles/NavStyles";
 import User from "./User";
 import Logout from "./Logout";
 import CartCount from "./CartCount"
 import { withApollo } from '../lib/nextApollo'
 
-const TOGGLE_CART_MUTATION = gql`
-  mutation {
-    toggleCart @client
-  }
-`;
+
 const Nav = (props) => {
   
   
