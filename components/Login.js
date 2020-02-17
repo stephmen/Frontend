@@ -7,7 +7,7 @@ import Router from "next/router";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
 import { CURRENT_USER_QUERY } from './User';
-import { withApollo } from "../lib/nextApollo";
+
 
 const SIGNIN_MUTATION = gql`
   mutation SIGNIN_MUTATION($email: String!, $password: String!) {
@@ -51,6 +51,7 @@ const Login = props => {
             <fieldset disabled={loading} aria-busy={loading}>
               
               <Error error={errors} />
+              
               <label htmlFor="email">
                 Email
                 <input

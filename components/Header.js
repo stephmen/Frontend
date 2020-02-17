@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import Nav from './Nav';
-import { withApollo } from '../lib/apollo';
+
 import Cart from './Cart';
+import UserMenu from './UserMenu'
 import Search from './Search';
 
 
@@ -73,6 +74,7 @@ const Header = () => (
       <Search />
     </div>
     <Cart />
+    <UserMenu />
   </StyledHeader>
 );
 

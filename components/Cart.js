@@ -15,6 +15,7 @@ import { withApollo } from "../lib/nextApollo";
 const LOCAL_STATE_QUERY = gql`
   query {
     cartOpen @client
+    userMenuOpen @client
   }
 `;
 const TOGGLE_CART_MUTATION = gql`
