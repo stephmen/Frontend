@@ -1,4 +1,5 @@
 import React from "react";
+import { useMutation, useQuery } from "@apollo/react-hooks";
 import Button from "@material-ui/core/Button";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
@@ -8,17 +9,41 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import gql from 'graphql-tag';
+import Link from "next/link";
+import Logout from "./Logout";
+import { TOGGLE_CART_MUTATION } from './Cart';
+import { CURRENT_USER_QUERY } from './User';
+
+
+const SIGN_OUT_MUTATION = gql`
+  mutation SIGN_OUT_MUTATION {
+    signout {
+      message
+    }
+  }
+`;
+
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
-  },
+  },  
   paper: {
-    marginRight: theme.spacing(8)
+    marginRight: theme.spacing(2),
+  },
+  menulist: {
+    fontSize: 18
   }
+  
 }));
 
 export default function MenuListComposition() {
+  const [toggleCart] = useMutation(TOGGLE_CART_MUTATION);
+  const [signout] = useMutation(SIGN_OUT_MUTATION, {
+    refetchQueries:[{query: CURRENT_USER_QUERY}]
+  })
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -53,15 +78,8 @@ export default function MenuListComposition() {
   }, [open]);
 
   return (
-    // <div className={classes.root}>
-    //   {/* <Paper className={classes.paper}>
-    //     <MenuList>
-    //       <MenuItem>Profile</MenuItem>
-    //       <MenuItem>My account</MenuItem>
-    //       <MenuItem>Logout</MenuItem>
-    //     </MenuList>
-    //   </Paper> */}
-        <div>
+  
+        <div >
         <Button
           ref={anchorRef}
           aria-controls={open ? "menu-list-grow" : undefined}
@@ -85,28 +103,34 @@ export default function MenuListComposition() {
                   placement === "bottom" ? "center top" : "center bottom"
               }}
             >
-              <Paper>
+              <Paper className={classes.paper}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MenuList
+                  className={classes.menulist}
                   autoFocusItem={open}
                   id="menu-list-grow"
                   onKeyDown={handleListKeyDown}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
-                  <MenuItem onClick={handleClose}>My Account</MenuItem>
-                  <MenuItem onClick={handleClose}>My Cart</MenuItem>
-                  <MenuItem onClick={handleClose}>My Orders</MenuItem>
-                  <MenuItem onClick={handleClose}>Sell</MenuItem>
-                  {/* <MenuItem onClick={handleClose} ><Logout/ ></MenuItem> */}
-                </MenuList>
+                  
+                  
+                  <Link href="/me">
+                    <MenuItem onClick={handleClose} style={{fontSize:30}}>My Account</MenuItem>
+                  </Link>
+                  <Link href="/orders">
+                    <MenuItem onClick={handleClose} style={{fontSize:30}}>My Orders</MenuItem>
+                  </Link>
+                  <Link href="/sell">
+                    <MenuItem onClick={handleClose} style={{fontSize:30}}>Sell</MenuItem>
+                  </Link>
+                  <MenuItem onClick={() => toggleCart()} style={{fontSize:30}}>My Cart</MenuItem>
+                  <MenuItem onClick={() => signout()} style={{fontSize:30}}>Logout</MenuItem>
+                  </MenuList>
               </ClickAwayListener>
               </Paper>
             </Grow>
           )}
         </Popper>
       </div>
-    // </div>
+  
   );
 }

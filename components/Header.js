@@ -41,10 +41,22 @@ const Logo = styled.h1`
 `;
 
 const StyledHeader = styled.header`
+  .top-bar {
+    display: flex;
+    grid-template-columns: auto 2fr;
+    margin-right: 80px; 
+    justify-content: space-between;
+    /*    align-items: stretch; */
+    @media (max-width: 1300px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+    }
+  }
   .bar {
     border-bottom: 10px solid ${props => props.theme.black};
     display: flex;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 2fr; 
     justify-content: space-between;
     align-items: stretch;
     @media (max-width: 1300px) {
@@ -57,18 +69,21 @@ const StyledHeader = styled.header`
     display: grid;
     grid-template-columns: 1fr auto;
     border-bottom: 1px solid ${props => props.theme.lightgrey};
+    z-index: -1;
   }
 `;
 
 const Header = () => (
   <StyledHeader>
-    <div className="bar">
+    <div className="top-bar">
       <Logo>
         <Link href="/">
           <a>MyEccom</a>
           </Link>
       </Logo>
       <Nav />
+    </div>
+    <div className="bar">
     </div>
     <div className="sub-bar">
       <Search />

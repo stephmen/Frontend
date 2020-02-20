@@ -4,6 +4,15 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Logout from "./Logout"
+import { CURRENT_USER_QUERY } from './User';
+
+const SIGN_OUT_MUTATION = gql`
+  mutation SIGN_OUT_MUTATION {
+    signout {
+      message
+    }
+  }
+`;  
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);

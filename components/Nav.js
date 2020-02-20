@@ -23,35 +23,14 @@ const Nav = (props) => {
   const [toggleUserMenu] = useMutation(TOGGLE_USERMENU_MUTATION);
   
   return(
+    // <NavStyles>
     <User>
       {({ data }) => {
         const me = data ? data.me : null;
         return (
-          <NavStyles>
-          {/* <Link href="/items">
-            <a>Shop</a>
-          </Link> */}
+          <>
           {me && (
             <>
-              <Link href="/sell">
-                <a>Sell</a>
-              </Link>
-              <Link href="/orders">
-                <a>Orders</a>
-              </Link>
-              <Link href="/me">
-                <a>Account</a>
-              </Link> 
-          
-              <button onClick={() => toggleCart()}>My Cart
-              <CartCount count={me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)}></CartCount>
-              </button>
-
-              <button onClick={() => toggleUserMenu()}><a><AccountCircleIcon style={{ fontSize: 45 }} color={'green'}/></a>
-              </button>
-              
-              <Logout />
-
               <Link>
               <SimpleMenu />
               </Link>
@@ -59,13 +38,15 @@ const Nav = (props) => {
           )}
           {!me && (
             <Link href="/login">
-              <a><AccountCircleIcon style={{ fontSize: 45 }} color={'green'}/></a>
+              <a><AccountCircleIcon style={{ fontSize: 45 }}/></a>
             </Link>
           )}
-        </NavStyles>
+        </>
       );
     }}
-  </User>)
+  </User>
+  // </NavStyles>
+  )
 };
 
 export default withApollo(Nav);
