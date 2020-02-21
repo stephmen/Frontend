@@ -44,7 +44,7 @@ const OrderList = (props) => {
             <div>
            
               <h2>You have {data.orders.length} orders</h2>
-              <orderUl>
+              <orderUL>
                 {data.orders.map(order => (
                   
                   <OrderItemStyles key={order.id}>
@@ -70,7 +70,7 @@ const OrderList = (props) => {
                     </Link>
                   </OrderItemStyles>
                 ))}
-              </orderUl>
+              </orderUL>
             </div>
           );
 }

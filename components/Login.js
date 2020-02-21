@@ -84,12 +84,12 @@ const Login = props => {
               <br></br>
               <br></br>
               <Link href="/signup">
-              <a>Don't have an account ?</a>
+              Don't have an account ?
               </Link>
               <br></br>
               <br></br>
               <Link href="/requestreset">
-              <a>Reset Password</a>
+              Reset Password
               </Link>
             </fieldset>
           </Form>

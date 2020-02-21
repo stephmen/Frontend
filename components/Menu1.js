@@ -28,7 +28,7 @@ export default function SimpleMenu() {
   return (
     <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-      <a><AccountCircleIcon style={{ fontSize: 45, color: 'green'}}/></a>
+      <AccountCircleIcon style={{ fontSize: 45, color: 'green'}}/>
       </Button>
       <Menu
         id="simple-menu"

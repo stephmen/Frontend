@@ -1,16 +1,16 @@
 import React from "react";
-import Account from "../components/Account"
+import MyItems from "../components/MyItems"
 
-const Me = (props) => {
+const myitems = (props) => {
   return (
     
-    <Account />
+    <MyItems />
     
   )
   }
  
 ;
 
-export default Me;
+export default myitems;
 
 

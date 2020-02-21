@@ -9,14 +9,17 @@ import DeleteItem from './DeleteItem';
 import AddToCart from './AddToCart';
 
 
+
 const Item = props => {
   
   
   Item.propTypes = {
     item: PropTypes.object.isRequired,
+    me: PropTypes.object
   };
 
     const { item } = props;
+    const { me } = props
     return (
       <ItemStyles>
         {item.image && <img src={item.image} alt={item.title} />}
@@ -28,15 +31,25 @@ const Item = props => {
               query: { id: item.id },
             }}
           >
-            {item.title}
+            <a>{item.title}</a>
           </Link>
         </Title>
         <PriceTag>{formatMoney(item.price)}</PriceTag>
         <p>{item.description}</p>
+        <p>ID from Item {item.user.id}</p>
+        <p>ID from User {me.id}</p> 
         
 
         <div className="buttonList">
-          <AddToCart id={item.id} />  
+          <Link
+            href={{
+              pathname: 'update',
+              query: { id: item.id },
+            }}
+          >
+            <a>Edit ✏️</a>
+          </Link> 
+          <DeleteItem id={item.id}>Delete This Item</DeleteItem>
         </div>
       </ItemStyles>
     );

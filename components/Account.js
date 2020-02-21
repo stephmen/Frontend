@@ -5,9 +5,13 @@ import Form from "./styles/Form.js";
 import RequestReset from "./RequestReset";
 import Styled from "styled-components";
 
-const Underline = Styled.a`
-font-size: 
+const Underline = Styled.text` 
 text-decoration: underline;
+color: ${props => props.theme.black};
+background-color: ${props => props.theme.blue};
+hover: {
+  background-color: ${props => props.theme.blue}
+}
 `;
 
 const Account = () => (
@@ -18,12 +22,13 @@ const Account = () => (
         <div>
           {me && (
             <Form>
-              <label>{me.name}</label>
-              <label>{me.email}</label>
+              <label>User Name: {me.name}</label>
+              <label>User Email: {me.email}</label>
+              
               <br></br>
               <Link href="/requestreset">
                 <Underline>
-                  <a>Reset Your Password</a>
+                  <span>Change Your Password</span>
                 </Underline>
               </Link>
             </Form>

@@ -17,6 +17,7 @@ const ALL_ITEMS_QUERY = gql`
       description
       image
       largeImage
+      
     }
   }
 `;

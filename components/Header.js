@@ -78,7 +78,7 @@ const Header = () => (
     <div className="top-bar">
       <Logo>
         <Link href="/">
-          <a>MyEccom</a>
+          MyEccom
           </Link>
       </Logo>
       <Nav />

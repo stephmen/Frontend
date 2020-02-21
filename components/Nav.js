@@ -31,9 +31,9 @@ const Nav = (props) => {
           <>
           {me && (
             <>
-              <Link>
+                
               <SimpleMenu />
-              </Link>
+              
             </>
           )}
           {!me && (
