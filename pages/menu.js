@@ -2,10 +2,10 @@ import Signup from '../components/Signup';
 import Menu from '../components/Menu';
 import styled from 'styled-components';
 
-const Menu = props => (
+const MenuTEST = props => (
   
     <Menu />
  
 );
 
-export default Menu;
+export default MenuTEST;
