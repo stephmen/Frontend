@@ -1,1 +1,0 @@
-const antStyles = /(antd\/.*?\/style).*(?<![.]js)$/;

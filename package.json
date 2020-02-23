@@ -22,6 +22,7 @@
     "apollo-client": "^2.6.8",
     "apollo-link-http": "^1.5.16",
     "bcrypt": "^3.0.7",
+    "command-line-args": "^4.0.7",
     "date-fns": "^2.9.0",
     "date-fns-tz": "^1.0.10",
     "downshift": "^4.0.10",
@@ -39,7 +40,8 @@
     "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^4.3.0",
     "styled-components": "^4.4.0",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "babel-plugin-styled-components": "^1.10.7"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.10.7"
