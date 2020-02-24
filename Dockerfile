@@ -13,7 +13,7 @@ COPY . .
 RUN npm install
 RUN npm run build
 EXPOSE 7777
-CMD [ "npm", "run", "prod" ]
+CMD [ "npm", "run", "start" ]
 
 ####The line below was used to create the container
 ####docker build -t stephane/docker-ecom-front .
