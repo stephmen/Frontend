@@ -11,9 +11,9 @@ RUN npm install
 # RUN npm ci --only=production
 COPY . .
 RUN npm install
-#RUN npm run build
+RUN npm run build
 EXPOSE 7777
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "start" ]
 
 ####The line below was used to create the container
 ####docker build -t stephane/docker-ecom-front .
