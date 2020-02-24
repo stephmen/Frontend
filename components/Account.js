@@ -27,9 +27,10 @@ const Account = () => (
               
               <br></br>
               <Link href="/requestreset">
-                <Underline>
+                <a><Underline>
                   <span>Change Your Password</span>
                 </Underline>
+                </a>
               </Link>
             </Form>
           )}

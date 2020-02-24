@@ -1,7 +1,7 @@
 import React from 'react';
 import App from 'next/app';
 import Page from '../components/Page';
-import { withApollo } from "../lib/apollo";
+import { withApollo } from "../lib/nextApollo";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx}) {

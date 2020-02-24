@@ -113,18 +113,22 @@ export default function MenuListComposition() {
                 >
                   
                   
-                  <Link href="/me">
-                    <MenuItem onClick={handleClose} style={{fontSize:30}}>My Account</MenuItem>
-                  </Link>
-                  <Link href="/orders">
-                    <MenuItem onClick={handleClose} style={{fontSize:30}}>My Orders</MenuItem>
-                  </Link>
-                  <Link href="/sell">
-                    <MenuItem onClick={handleClose} style={{fontSize:30}}>Sell Items</MenuItem>
-                  </Link>
-                  <Link href="/myitems">
-                    <MenuItem onClick={handleClose} style={{fontSize:30}}>My Items</MenuItem>
-                  </Link>
+                  
+                      <MenuItem onClick={handleClose} style={{fontSize:30}}><Link href="/me">
+                    <a>My Account</a></Link></MenuItem>
+                  
+                  
+                  
+                  
+                  <MenuItem onClick={handleClose} style={{fontSize:30}}><Link href="/orders">
+                    <a>My Orders</a></Link></MenuItem>
+                  
+                  <MenuItem onClick={handleClose} style={{fontSize:30}}><Link href="/sell">
+                    <a>Sell Items</a></Link></MenuItem>
+                  
+                  <MenuItem onClick={handleClose} style={{fontSize:30}}><Link href="/myitems">
+                    <a>My Items</a></Link></MenuItem>
+                  
                   <MenuItem onClick={() => toggleCart()} style={{fontSize:30}}>My Cart</MenuItem>
                   <MenuItem onClick={() => signout()} style={{fontSize:30}}>Logout</MenuItem>
                   </MenuList>
