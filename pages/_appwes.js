@@ -1,8 +1,8 @@
-import React from "react";
-import App from "next/app";
-import { ApolloProvider } from "@apollo/client";
-import Page from "../components/Page";
-import { withApollo } from "../lib/nextApollo";
+import App from 'next/app';
+import { ApolloProvider } from '@apollo/client';
+import Page from '../components/Page';
+import withData from '../lib/withData';
+import { CartStateProvider } from '../components/LocalState';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -10,22 +10,24 @@ class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-    //this expose the query to the users
+    // this exposes the query to the user
     pageProps.query = ctx.query;
     return { pageProps };
   }
+
   render() {
     const { Component, apollo, pageProps } = this.props;
+
     return (
-      
-      //added ApolloProvider from wes Boss
       <ApolloProvider client={apollo}>
-        <Page>
-          <Component {...pageProps} />
-        </Page>
+        <CartStateProvider>
+          <Page>
+            <Component {...pageProps} />
+          </Page>
+        </CartStateProvider>
       </ApolloProvider>
     );
   }
 }
 
-export default withApollo(MyApp);
+export default withData(MyApp);

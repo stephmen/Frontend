@@ -8,4 +8,4 @@ const Home = (props) => (
   </div>
 );
 
-export default Home;
+export default withApollo(Home);
