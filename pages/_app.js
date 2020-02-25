@@ -15,16 +15,16 @@ class MyApp extends App {
     return { pageProps };
   }
   render() {
-    // const { Component, apollo, pageProps } = this.props;
+    const { Component, apollo, pageProps } = this.props;
     const { Component, pageProps } = this.props;
     return (
       
       //added ApolloProvider from wes Boss
-      // <ApolloProvider client={apollo}>
+      <ApolloProvider client={apollo}>
         <Page>
           <Component {...pageProps} />
         </Page>
-      // </ApolloProvider>
+      </ApolloProvider>
     );
   }
 }
