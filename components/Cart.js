@@ -27,6 +27,7 @@ const TOGGLE_CART_MUTATION = gql`
 const Cart = (props) => {
   const { loading, error, data } = useQuery(LOCAL_STATE_QUERY);
   const [toggleCart] = useMutation(TOGGLE_CART_MUTATION);
+  if (loading) return <p>Loading...</p>;
   return(
   <User>
     {({ data: { me } }) => {
