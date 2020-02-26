@@ -35,7 +35,7 @@ const ItemsList = styled.div`
 `;
 
 const Items = props => {
-  // useQuery Hook
+  // useQuery Hook/
   const { loading, error, data } = useQuery(ALL_ITEMS_QUERY,{
     variables:{
       skip: props.page * perPage - perPage,
