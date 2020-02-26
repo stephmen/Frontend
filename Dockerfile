@@ -12,6 +12,7 @@ RUN npm install
 COPY . .
 RUN npm install
 RUN npm run build
+RUN chmod 777 -R /usr/src/frontend/.next
 EXPOSE 7777
 CMD [ "npm", "run", "dev" ]
 
