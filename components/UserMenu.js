@@ -25,8 +25,8 @@ const UserMenu = (props) => {
   const { loading, error, data } = useQuery(LOCAL_STATE_QUERY);
   const [toggleUserMenu] = useMutation(TOGGLE_USERMENU_MUTATION);
   const [toggleCart] = useMutation(TOGGLE_CART_MUTATION);
-  //if (loading) return <p>Loading...</p>;
-  console.log(data)
+  if (loading) return <p>Loading...</p>;
+  //console.log(data)
   return(
   <User>
     {({ data: { me } }) => {
