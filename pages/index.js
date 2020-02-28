@@ -2,10 +2,13 @@ import Items from '../components/Items';
 
 import withApollo from '../lib/nextApollo'
 
-const Home=(props) => (
+const Home=(props) => {
+  if (props.query.page == undefined)  {props = {query: {page: 1}}}
+  return(
   <div>
     <Items page={parseFloat(props.query.page) || 1} />
-  </div>
-);
+    {/* <Items page={1} /> */}
+  </div>)
+};
 
-export default Home;
+export default withApollo(Home);

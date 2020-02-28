@@ -3,6 +3,7 @@ import App from "next/app";
 import { ApolloProvider } from "@apollo/client";
 import Page from "../components/Page";
 import withApollo  from "../lib/nextApollo";
+import { getDataFromTree } from '@apollo/react-ssr'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -29,5 +30,5 @@ class MyApp extends App {
   }
 }
 
-export default withApollo(MyApp, {});
+export default withApollo(MyApp);
 
