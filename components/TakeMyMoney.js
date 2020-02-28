@@ -8,7 +8,7 @@ import gql from 'graphql-tag';
 import calcTotalPrice from '../lib/calcTotalPrice';
 import Error from './ErrorMessage';
 import User, { CURRENT_USER_QUERY } from './User';
-import { withApollo } from '../lib/nextApollo'
+import withApollo from '../lib/nextApollo'
 
 const CREATE_ORDER_MUTATION = gql`
   mutation createOrder($token: String!) {

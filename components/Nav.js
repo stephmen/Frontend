@@ -10,7 +10,7 @@ import Logout from "./Logout";
 import CartCount from "./CartCount"
 //import AccountIcon from '../components/icons/AccountIcon'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { withApollo } from '../lib/nextApollo'
+import withApollo from '../lib/nextApollo'
 import SimpleMenu from './Menu'
 
 
@@ -49,4 +49,4 @@ const Nav = (props) => {
   )
 };
 
-export default withApollo(Nav);
+export default Nav;

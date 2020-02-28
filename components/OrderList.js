@@ -8,7 +8,7 @@ import gql from 'graphql-tag';
 import Error from './ErrorMessage';
 import formatMoney from '../lib/formatMoney';
 import OrderItemStyles from './styles/OrderItemStyles';
-import { withApollo } from '../lib/nextApollo'
+import withApollo from '../lib/nextApollo'
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
@@ -28,7 +28,7 @@ const USER_ORDERS_QUERY = gql`
   }
 `;
 
-const orderUl = styled.ul`
+const OrderUl = styled.ul`
   display: grid;
   grid-gap: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
@@ -44,7 +44,7 @@ const OrderList = (props) => {
             <div>
            
               <h2>You have {data.orders.length} orders</h2>
-              <orderUL>
+              <OrderUl>
                 {data.orders.map(order => (
                   
                   <OrderItemStyles key={order.id}>
@@ -70,7 +70,7 @@ const OrderList = (props) => {
                     </Link>
                   </OrderItemStyles>
                 ))}
-              </orderUL>
+              </OrderUl>
             </div>
           );
 }

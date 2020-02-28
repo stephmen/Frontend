@@ -12,7 +12,7 @@ import Logout from "./Logout"
 import { TOGGLE_CART_MUTATION } from './Cart';
 
 
-import { withApollo } from "../lib/nextApollo";
+import withApollo from "../lib/nextApollo";
 
 
 const TOGGLE_USERMENU_MUTATION = gql`

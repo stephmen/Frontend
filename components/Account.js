@@ -5,7 +5,7 @@ import Form from "./styles/Form.js";
 import RequestReset from "./RequestReset";
 import Styled from "styled-components";
 
-const Underline = Styled.text` 
+const Underline = Styled.div` 
 text-decoration: underline;
 color: ${props => props.theme.black};
 background-color: ${props => props.theme.blue};

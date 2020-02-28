@@ -1,4 +1,4 @@
-import Signup from '../components/Signup';
+//import Signup from '../components/Signup';
 import Login from '../components/Login';
 import styled from 'styled-components';
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import formatMoney from '../lib/formatMoney';
 import RemoveFromCart from './RemoveFromCart';
-import { withApollo } from '../lib/nextApollo'
+import withApollo from '../lib/nextApollo'
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;

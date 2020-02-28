@@ -2,7 +2,7 @@ import React from "react";
 import App from "next/app";
 import { ApolloProvider } from "@apollo/client";
 import Page from "../components/Page";
-import { withApollo } from "../lib/nextApollo";
+import withApollo  from "../lib/nextApollo";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -20,7 +20,7 @@ class MyApp extends App {
     return (
       
       //added ApolloProvider from wes Boss
-      //<ApolloProvider client={apollo}>
+      //<ApolloProvider client>
         <Page >
           <Component {...pageProps} />
         </Page>
@@ -29,5 +29,5 @@ class MyApp extends App {
   }
 }
 
-export default withApollo(MyApp);
+export default withApollo(MyApp, {});
 

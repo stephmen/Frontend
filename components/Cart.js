@@ -10,7 +10,7 @@ import CartItem from "./CartItem"
 import calcTotalPrice from '../lib/calcTotalPrice';
 import formatMoney from '../lib/formatMoney';
 import TakeMyMoney from './TakeMyMoney';
-import { withApollo } from "../lib/nextApollo";
+import withApollo from "../lib/nextApollo";
 
 const LOCAL_STATE_QUERY = gql`
   query {

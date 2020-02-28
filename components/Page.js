@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Header from './Header';
 import Meta from './Meta';
-import { withApollo } from '../lib/nextApollo';
+import withApollo from '../lib/nextApollo';
 
 const theme = {
   blue: '#2f70b1',
@@ -68,4 +68,4 @@ const Page = (props) => {
   }
 
 
-export default withApollo(Page);
+export default Page;

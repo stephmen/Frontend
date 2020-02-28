@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { useApolloClient } from "@apollo/react-hooks";
-import { withApollo } from "../lib/nextApollo";
+import withApollo from "../lib/nextApollo";
 import { ALL_ITEMS_QUERY } from "./Items";
 import { CURRENT_USER_QUERY } from './User';
 import gql from "graphql-tag";
