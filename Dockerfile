@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:12
 RUN mkdir -p /usr/src/frontend/
 WORKDIR /usr/src/frontend/
 # Install app dependencies
@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 RUN npm install
 #RUN npm run build
-RUN chmod 777 /usr/src/frontend/.next/BUILD_ID
+#RUN chmod 777 /usr/src/frontend/.next/BUILD_ID
 EXPOSE 7777
 CMD [ "npm", "run", "dev" ]
 
