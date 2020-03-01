@@ -26,7 +26,8 @@ const Login = props => {
   refetchQueries:[{query: CURRENT_USER_QUERY}],
   onCompleted() { 
     Router.push({
-        pathname: "/items",
+        pathname: "/index",
+        // pathname: "/items",
       })   
     }}
   )

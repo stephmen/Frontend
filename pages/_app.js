@@ -21,11 +21,11 @@ class MyApp extends App {
     return (
       
       //added ApolloProvider from wes Boss
-      //<ApolloProvider client>
+      <ApolloProvider client={withApollo}>
         <Page >
           <Component {...pageProps} />
         </Page>
-      //</ApolloProvider>
+      </ApolloProvider>
     );
   }
 }

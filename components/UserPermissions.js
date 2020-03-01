@@ -66,4 +66,4 @@ const UserPermissions = props => {
     );
   };
 
-  export default UserPermissions;
+  export default withApollo(UserPermissions);

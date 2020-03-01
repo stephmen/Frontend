@@ -42,5 +42,5 @@ User.propTypes = {
   children: PropTypes.func.isRequired,
 };
 
-export default withApollo(User);
 export { CURRENT_USER_QUERY };
+export default withApollo(User);
