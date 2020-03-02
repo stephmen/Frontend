@@ -12,7 +12,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import gql from 'graphql-tag';
 import Link from "next/link";
 import Logout from "./Logout";
-import { TOGGLE_CART_MUTATION } from './Cart';
+//import { TOGGLE_CART_MUTATION } from './Cart';
 import { CURRENT_USER_QUERY } from './User';
 
 
@@ -21,6 +21,12 @@ const SIGN_OUT_MUTATION = gql`
     signout {
       message
     }
+  }
+`;
+
+const TOGGLE_CART_MUTATION = gql`
+  mutation {
+    toggleCart @client
   }
 `;
 

@@ -26,7 +26,7 @@ const UserMenu = (props) => {
   const [toggleUserMenu] = useMutation(TOGGLE_USERMENU_MUTATION);
   const [toggleCart] = useMutation(TOGGLE_CART_MUTATION);
   if (loading) return <p>Loading...</p>;
-  //console.log(data)
+  console.log(data)
   return(
   <User>
     {({ data: { me } }) => {
@@ -52,9 +52,9 @@ const UserMenu = (props) => {
                 <a>Account</a>
               </Link>
               <br />
-              <button onClick={() => {toggleCart(); toggleUserMenu() }}>My Cart
+              <button onClick={() => {toggleCart(); toggleUserMenu() }}>My Cart</button>
+              {/* <button onClick={toggleCart}>My CartHELLO</button> */}
               {/* <CartCount count={me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)}></CartCount> */}
-              </button>
               
               <Logout />
 
