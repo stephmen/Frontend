@@ -49,4 +49,4 @@ CartItem.propTypes = {
   cartItem: PropTypes.object.isRequired,
 };
 
-export default withApollo(CartItem);
+export default CartItem;

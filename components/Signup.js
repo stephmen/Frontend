@@ -96,4 +96,4 @@ const Signup = props => {
     
 
 
-export default withApollo(Signup);
+export default Signup;

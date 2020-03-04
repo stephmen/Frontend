@@ -43,4 +43,4 @@ User.propTypes = {
 };
 
 export { CURRENT_USER_QUERY };
-export default withApollo(User);
+export default User;

@@ -60,4 +60,4 @@ const DeleteItem = props => {
   );
 };
 
-export default withApollo(DeleteItem);
+export default DeleteItem;

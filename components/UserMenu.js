@@ -52,8 +52,8 @@ const UserMenu = (props) => {
                 <a>Account</a>
               </Link>
               <br />
-              <button onClick={() => {toggleCart(); toggleUserMenu() }}>My Cart</button>
-              {/* <button onClick={toggleCart}>My CartHELLO</button> */}
+              //<button onClick={() => {toggleCart(); toggleUserMenu() }}>My Cart</button>
+              <button onClick={toggleCart}>My CartHELLO</button>
               {/* <CartCount count={me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)}></CartCount> */}
               
               <Logout />
@@ -68,5 +68,5 @@ const UserMenu = (props) => {
     }}
   </User>);
 };
-export default withApollo(UserMenu);
+export default UserMenu;
 export { TOGGLE_USERMENU_MUTATION };

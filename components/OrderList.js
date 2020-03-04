@@ -75,4 +75,4 @@ const OrderList = (props) => {
           );
 }
 
-export default withApollo(OrderList);
+export default OrderList;

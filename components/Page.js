@@ -68,4 +68,4 @@ const Page = (props) => {
   }
 
 
-export default withApollo(Page);
+export default Page;

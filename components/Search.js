@@ -110,4 +110,4 @@ const AutoComplete = (props) => {
   }
 
 
-export default withApollo(AutoComplete);
+export default AutoComplete;

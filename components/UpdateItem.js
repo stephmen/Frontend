@@ -104,5 +104,5 @@ const UpdateItem = props => {
       </Form>
   );
 };
-export default withApollo(UpdateItem);
+export default UpdateItem;
 export { UPDATE_ITEM_MUTATION };

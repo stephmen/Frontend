@@ -139,5 +139,5 @@ const CreateItemHooks = props => {
   );
 };
 
-export default withApollo(CreateItemHooks);
+export default CreateItemHooks;
 export { CREATE_ITEM_MUTATION };

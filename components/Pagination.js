@@ -66,4 +66,4 @@ const Pagination = props => {
   );
 };
 
-export default withApollo(Pagination);
+export default Pagination;

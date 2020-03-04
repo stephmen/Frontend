@@ -105,4 +105,4 @@ const MyItems = props => {
 };
 
 export { ALL_ITEMS_QUERY };
-export default withApollo(MyItems);
+export default MyItems;

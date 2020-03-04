@@ -60,5 +60,5 @@ const Cart = (props) => {
     }}
   </User>);
 };
-export default withApollo(Cart);
+export default Cart;
 export { LOCAL_STATE_QUERY, TOGGLE_CART_MUTATION };

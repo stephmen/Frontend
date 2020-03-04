@@ -34,7 +34,7 @@ const ItemsList = styled.div`
   margin: 0 auto;
 `;
 
-const Items = props => {
+const Items = (props) => {
   // useQuery Hook/
   const { loading, error, data } = useQuery(ALL_ITEMS_QUERY,{
     variables:{
@@ -60,4 +60,4 @@ const Items = props => {
 
 
 export { ALL_ITEMS_QUERY };
-export default withApollo(Items);
+export default Items;

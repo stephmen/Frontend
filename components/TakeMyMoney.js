@@ -77,4 +77,4 @@ const TakeMyMoney = (props) => {
   }
 
 
-export default withApollo(TakeMyMoney);
+export default TakeMyMoney;
