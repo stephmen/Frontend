@@ -10,7 +10,6 @@ Home.defaultProps = {
   return (
     <div>
       <Items page={parseFloat(props.query.page)} />
-      {/* <Items page={1} /> */}
     </div>
   );
 };
