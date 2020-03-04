@@ -39,7 +39,8 @@ const Items = (props) => {
   const { loading, error, data } = useQuery(ALL_ITEMS_QUERY,{
     variables:{
       skip: props.page * perPage - perPage,
-    }
+    },
+    onCompleted: data => { }
   });
   console.log({ ...data });
   if (loading) return <p>Loading...</p>;

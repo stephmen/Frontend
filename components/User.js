@@ -28,7 +28,8 @@ const CURRENT_USER_QUERY = gql`
 
 
 const User = props => {
- const {loading, data, error}=useQuery(CURRENT_USER_QUERY)
+ const {loading, data, error}=useQuery(CURRENT_USER_QUERY,{
+   onCompleted: data => { }})
  if (loading) return <p>Loading</p>
  return (
   <div>

@@ -22,7 +22,9 @@ const TOGGLE_USERMENU_MUTATION = gql`
 `;
 
 const UserMenu = (props) => {
-  const { loading, error, data } = useQuery(LOCAL_STATE_QUERY);
+const { loading, error, data } = useQuery(LOCAL_STATE_QUERY,{
+  onCompleted: data => { }
+});
   const [toggleUserMenu] = useMutation(TOGGLE_USERMENU_MUTATION);
   const [toggleCart] = useMutation(TOGGLE_CART_MUTATION);
   if (loading) return <p>Loading...</p>;
