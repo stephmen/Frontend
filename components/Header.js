@@ -77,7 +77,7 @@ const Header = () => (
   <StyledHeader>
     <div className="top-bar">
       <Logo>
-        <Link href="/">
+        <Link href="/items">
           <a>MyEccom</a>
           </Link>
       </Logo>
