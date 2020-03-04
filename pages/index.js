@@ -1,16 +1,18 @@
-import React from 'react';
+import React from "react";
 import Items from "../components/Items";
-
-
+import PropTypes from "prop-types";
 
 const Home = (props) => {
-Home.defaultProps = {
-  query: {page: 1 }
-}
+  Home.propTypes = {
+    query: PropTypes.object.isRequired
+  };
+  Home.defaultProps = {
+    query: { page: "1"}
+  };
   return (
-    <div>
-      <Items page={parseFloat(props.query.page)} />
-    </div>
+    
+      <Items page={parseFloat(props.query.page) || 1} />
+    
   );
 };
 
