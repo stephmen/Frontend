@@ -1,6 +1,5 @@
 import React from "react";
 import gql from "graphql-tag";
-//import { Query } from 'react-apollo';
 import { useQuery } from "@apollo/react-hooks";
 import Head from "next/head";
 import Link from "next/link";
@@ -38,8 +37,8 @@ const Pagination = (props) => {
       <Link
         //prefetch
         href={{
-          // pathname: "items",
-          pathname: "index",
+          pathname: "items",
+          //pathname: "index",
           query: { page: page - 1 }
         }}
       >
@@ -54,8 +53,8 @@ const Pagination = (props) => {
       <Link
         //prefetch
         href={{
-          //pathname: "items",
-          pathname: "index",
+          pathname: "items",
+          //pathname: "index",
           query: { page: page + 1 }
         }}
       >
