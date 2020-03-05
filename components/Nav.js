@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from "next/link";
 import gql from 'graphql-tag';
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import { useMutation } from "@apollo/react-hooks";
 import { TOGGLE_CART_MUTATION } from './Cart';
 import { TOGGLE_USERMENU_MUTATION } from './UserMenu';
 import NavStyles from "./styles/NavStyles";

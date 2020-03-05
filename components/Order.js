@@ -34,10 +34,12 @@ const SINGLE_ORDER_QUERY = gql`
 const Order = (props) => {
   const { loading, data, error } = useQuery(SINGLE_ORDER_QUERY, {
     variables: { id: props.id },
-    onCompleted(data) {
-      console.log(data);
+    
+      onCompleted: data => {},
+      ssrMode: false
     }
-  });
+    
+  );
   
   Order.propTypes = {
     id: PropTypes.string.isRequired

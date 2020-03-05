@@ -63,8 +63,12 @@ const MyItems = props => {
     {
       variables: {
         skip: props.page * perPage - perPage
+      },
+       
+        onCompleted: data => {},
+        ssrMode: false
       }
-    }
+    
   );
 
   // const { loading2, data2, error2 } = useQuery(CURRENT_USER_QUERY, {

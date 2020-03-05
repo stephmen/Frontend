@@ -1,6 +1,6 @@
 import { Query } from "react-apollo";
-import React, { useState, useEffect, useMutation } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import React, { useState, useEffect } from "react";
+import { useMutation } from "@apollo/react-hooks";
 import Error from "./ErrorMessage";
 import gql from "graphql-tag";
 import Table from "./styles/Table";
