@@ -44,6 +44,7 @@ const Items = (props) => {
     onCompleted: data => { }
   });
   console.log({ ...data });
+  console.log(process.env.endpoint)
   if (loading && !data) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
   return (
