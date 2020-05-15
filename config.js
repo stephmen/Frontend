@@ -8,8 +8,8 @@
 
 //working with environment Variables
 
-export const prodEndpoint = "http://apollo-backend-development.apps-crc.testing"
-export const endpoint = "http://172.30.254.196:4444" 
+export const prodEndpoint = process.env.prodEndpoint
+export const endpoint = process.env.enpoint 
 
 
 
