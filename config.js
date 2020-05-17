@@ -9,7 +9,7 @@
 //working with environment Variables
 
 export const prodEndpoint = process.env.prodEndpoint
-export const endpoint = process.env.enpoint 
+export const endpoint = process.env.endpoint 
 
 
 
