@@ -78,7 +78,7 @@ const Header = () => (
     <div className="top-bar">
       <Logo>
         <Link href="/items">
-          <a>MyEccomV004</a>
+          <a>{process.env.TEST_VAR}</a>
           </Link>
       </Logo>
       <Nav />
