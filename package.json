@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development next -p 7777",
+    "stage": "NODE_ENV=stage next start -p 7777",
+    "dev": "NODE_ENV=development next start   -p 7777",
     "build": "next build",
     "start": "next start -p 7777",
     "test": "NODE_ENV=test jest --watch",

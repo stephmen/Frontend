@@ -15,6 +15,7 @@
 
 export const endpoint = process.env.ENDPOINT
 export const prodEndpoint = process.env.PRODENDPOINT;
+export const stage = process.env.STAGE;
 
 
 
