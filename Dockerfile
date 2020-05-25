@@ -8,10 +8,10 @@ COPY package*.json /usr/src/frontend/
 
 RUN npm install
 # If you are building your code for production
-# RUN npm ci --only=production
+RUN npm ci --only=production
 COPY . .
 RUN npm install
-RUN npm run build
+#RUN npm run build
 #RUN chmod 777 /usr/src/frontend/.next/BUILD_ID
 EXPOSE 7777
 CMD [ "npm", "run", "start" ]
