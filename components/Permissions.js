@@ -43,7 +43,7 @@ const ALL_USERS_QUERY = gql`
 const Permissions = props => {
   const { data, loading, error } = useQuery(ALL_USERS_QUERY, {
     onCompleted: data => {},
-    ssrMode: false
+    ssrMode: true
   })
       
 if(loading) return(<div>LOADDIING</div>) 

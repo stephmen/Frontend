@@ -37,7 +37,7 @@ const OrderUl = styled.ul`
 const OrderList = (props) => {
   const {loading, data, error}=useQuery(USER_ORDERS_QUERY, {
     onCompleted: data => {},
-    ssrMode: false
+    ssrMode: true
   })
   const nyTimeZone = 'America/New_York'
           if (loading) return <p>loading...</p>;

@@ -19,7 +19,7 @@ const PAGINATION_QUERY = gql`
 
 const Pagination = (props) => {
   const { data, loading, error } = useQuery(PAGINATION_QUERY,{
-    ssrMode: false,
+    ssrMode: true,
     onCompleted: data => { }
   });
   
