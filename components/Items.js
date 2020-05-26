@@ -40,7 +40,7 @@ const Items = (props) => {
     variables:{
       skip: props.page * perPage - perPage,
     },
-    ssrMode: false,
+    ssrMode: true,
     onCompleted: data => { }
   });
   console.log({ ...data });

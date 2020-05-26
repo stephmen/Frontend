@@ -66,7 +66,7 @@ const MyItems = props => {
       },
        
         onCompleted: data => {},
-        ssrMode: false
+        ssrMode: true
       }
     
   );
