@@ -5,7 +5,8 @@ module.exports = {
     PRODENDPOINT: process.env.PRODENDPOINT,
     ENDPOINT: process.env.ENDPOINT,
     STAGE: process.env.STAGE,
-    APOLLO_TEST: process.env.APOLLO_BACKEND_PORT_4444_TCP,  
+    APOLLO_BACKEND_PORT_4444_TCP: process.env.APOLLO_BACKEND_PORT_4444_TCP,  
     TEST_VAR: process.env.TEST_VAR,
+    APOLLO_BACKEND_PORT: process.env.APOLLO_BACKEND_PORT,
   },
 }

@@ -5,7 +5,7 @@ import React from "react";
 const Home = (props) => (
   <div>
     <h1>
-          {process.env.APOLLO_TEST}
+          {process.env.NODE_ENV}
     </h1>
   </div>
 )

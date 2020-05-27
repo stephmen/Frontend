@@ -78,7 +78,7 @@ const Header = () => (
     <div className="top-bar">
       <Logo>
         <Link href="/items">
-          <a>This is a test {process.env.TEST_VAR}</a>
+          <a>This is a test {process.env.NODE_ENV}</a>
           </Link>
       </Logo>
       <Nav />
