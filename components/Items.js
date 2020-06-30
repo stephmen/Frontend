@@ -43,8 +43,7 @@ const Items = (props) => {
     ssrMode: true,
     onCompleted: data => { }
   });
-  console.log({ ...data });
-  console.log(process.env.endpoint)
+  
   if (loading && !data) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
   return (
@@ -63,4 +62,4 @@ const Items = (props) => {
 
 
 export { ALL_ITEMS_QUERY };
-export default Items;
+export default withApollo(Items);

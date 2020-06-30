@@ -46,12 +46,6 @@ const StyledHeader = styled.header`
     grid-template-columns: auto 2fr;
     margin-right: 80px; 
     justify-content: space-between;
-    /*    align-items: stretch; */
-    @media (max-width: 1300px) {
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-content: center;
-    }
   }
   .bar {
     border-bottom: 10px solid ${props => props.theme.black};

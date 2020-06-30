@@ -11,16 +11,14 @@ class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-    //this expose the query to the users
     pageProps.query = ctx.query;
     return { pageProps };
   }
   render() {
-    const { Component, apollo, pageProps } = this.props;
-    //const { Component, pageProps } = this.props;
+    const { Component, pageProps } = this.props;
     return (
       
-      //added ApolloProvider from wes Boss
+
       <ApolloProvider client={withApollo}>
         <Page >
           <Component {...pageProps} />
