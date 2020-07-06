@@ -10,8 +10,8 @@ const Variables = (props) => (
     <li>{process.env.ENDPOINT}</li>
     <li>{process.env.STAGE}</li>
     <li>{process.env.TEST_VAR}</li>
-    <li>{process.env.APOLLO_BACKEND_PORT}</li>
-    <li>{process.env.APOLLO_BACKEND_PORT_4444_TCP}</li>
+    <li>{process.APOLLO_BACKEND_PORT}</li>
+    <li>{process.APOLLO_BACKEND_PORT_4444_TCP}</li>
     </ul>
   </div>
 )
