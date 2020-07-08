@@ -1,0 +1,75 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    app.openshift.io/connects-to: apollo-backend
+  creationTimestamp: "2020-05-13T22:18:39Z"
+  generation: 28
+  name: frontend
+  namespace: production
+  resourceVersion: "5020745"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/production/deploymentconfigs/frontend
+  uid: b23ce630-9567-11ea-8d11-0a580a80000f
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    deployment-config.name: frontend
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        deployment-config.name: frontend
+    spec:
+      containers:
+      - env:
+        - name: prodEndpoint
+          value: http://apollo-backend-production.apps-crc.testing
+        image: image-registry.openshift-image-registry.svc:5000/development/frontend:frontendPRD
+        imagePullPolicy: Always
+        name: default-container
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - type: ConfigChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2020-07-08T13:40:17Z"
+    lastUpdateTime: "2020-07-08T13:40:17Z"
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2020-07-08T19:46:57Z"
+    lastUpdateTime: "2020-07-08T19:47:00Z"
+    message: replication controller "frontend-28" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - type: ConfigChange
+    message: config change
+  latestVersion: 28
+  observedGeneration: 28
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
