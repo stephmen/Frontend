@@ -1,4 +1,5 @@
 #!/bin/bash
-echo PRODENDPOINT='"'$prodEndpoint'"' >> config/dev.env
+echo This is the Apollo Server endpoint:
+echo PRODENDPOINT='"'$PRODENPOINT'"'
+echo PRODENDPOINT='"'$PRODENPOINT'"' >> config/dev.env
 npm run build
-npm run start
