@@ -6,13 +6,13 @@ WORKDIR /usr/src/frontend/
 # where available (npm@5+)
 COPY package*.json /usr/src/frontend/
 
-RUN npm install
+#RUN npm install
 # If you are building your code for production
 RUN npm ci --only=production
 COPY . .
 RUN npm install
 RUN chmod a+x endpointscript.sh
-RUN chmod a+w config/dev.env
+RUN chmod 777 config/dev.env
 #RUN npm run build
 #RUN chmod 777 /usr/src/frontend/.next/BUILD_ID
 EXPOSE 7777
