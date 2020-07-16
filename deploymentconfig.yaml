@@ -28,9 +28,10 @@ spec:
       intervalSeconds: 1
       maxSurge: 25%
       maxUnavailable: 25%
-      pre:
+      post:
         execNewPod:
-          command: ['touch', 'test.env']
+          command:
+          - ./endpointscript.sh
           containerName: frontend
         failurePolicy: Abort
       timeoutSeconds: 600
