@@ -3,18 +3,24 @@ kind: DeploymentConfig
 metadata:
   annotations:
     app.openshift.io/connects-to: apollo-backend
-  creationTimestamp: "2020-05-13T22:18:39Z"
-  generation: 28
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps.openshift.io/v1","kind":"DeploymentConfig","metadata":{"annotations":{"app.openshift.io/connects-to":"apollo-backend","openshift.io/generated-by":"OpenShiftNewApp"},"creationTimestamp":"2020-05-07T17:18:32Z","generation":146,"labels":{"app":"frontend"},"name":"frontend","namespace":"development","resourceVersion":"5377112","selfLink":"/apis/apps.openshift.io/v1/namespaces/development/deploymentconfigs/frontend","uid":"c708d120-9086-11ea-8022-0a580a800100"},"spec":{"replicas":1,"revisionHistoryLimit":10,"selector":{"app":"frontend","deploymentconfig":"frontend"},"strategy":{"activeDeadlineSeconds":21600,"resources":{},"rollingParams":{"post":{"execNewPod":{"command":["./endpointscript.sh"],"containerName":"frontend"},"failurePolicy":"Abort"}},"type":"Rolling"},"template":{"metadata":{"annotations":{"openshift.io/generated-by":"OpenShiftNewApp"},"creationTimestamp":null,"labels":{"app":"frontend","deploymentconfig":"frontend"}},"spec":{"containers":[{"env":[{"name":"PRODENDPOINT","value":"http://apollo-backend-development.apps-crc.testing"},{"name":"ENDPOINT","value":"http://apollo-backend-development.apps-crc.testing"}],"image":"image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:38a065d6ea00e087d3f49f7b5aabc8f0f0fb97f3129a3405d832ce6fdec23ad4","imagePullPolicy":"Always","name":"frontend","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/src/config","name":"app-config"}]}],"dnsPolicy":"ClusterFirst","restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30,"volumes":[{"configMap":{"defaultMode":420,"name":"test-config"},"name":"app-config"}]}},"test":false,"triggers":[{"type":"ConfigChange"},{"imageChangeParams":{"automatic":true,"containerNames":["frontend"],"from":{"kind":"ImageStreamTag","name":"frontend:latest","namespace":"development"},"lastTriggeredImage":"image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:38a065d6ea00e087d3f49f7b5aabc8f0f0fb97f3129a3405d832ce6fdec23ad4"},"type":"ImageChange"}]},"status":{"availableReplicas":1,"conditions":[{"lastTransitionTime":"2020-07-13T15:02:22Z","lastUpdateTime":"2020-07-13T15:02:25Z","message":"replication controller \"frontend-144\" successfully rolled out","reason":"NewReplicationControllerAvailable","status":"True","type":"Progressing"},{"lastTransitionTime":"2020-07-13T19:27:20Z","lastUpdateTime":"2020-07-13T19:27:20Z","message":"Deployment config has minimum availability.","status":"True","type":"Available"}],"details":{"causes":[{"imageTrigger":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:38a065d6ea00e087d3f49f7b5aabc8f0f0fb97f3129a3405d832ce6fdec23ad4"}},"type":"ImageChange"}],"message":"image change"},"latestVersion":144,"observedGeneration":146,"readyReplicas":1,"replicas":1,"unavailableReplicas":0,"updatedReplicas":1}}
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2020-05-07T17:18:32Z"
+  generation: 162
+  labels:
+    app: frontend
   name: frontend
-  namespace: production
-  resourceVersion: "5020745"
-  selfLink: /apis/apps.openshift.io/v1/namespaces/production/deploymentconfigs/frontend
-  uid: b23ce630-9567-11ea-8d11-0a580a80000f
+  namespace: development
+  resourceVersion: "5698586"
+  selfLink: /apis/apps.openshift.io/v1/namespaces/development/deploymentconfigs/frontend
+  uid: c708d120-9086-11ea-8022-0a580a800100
 spec:
   replicas: 1
   revisionHistoryLimit: 10
   selector:
-    deployment-config.name: frontend
+    app: frontend
+    deploymentconfig: frontend
   strategy:
     activeDeadlineSeconds: 21600
     resources: {}
@@ -22,53 +28,84 @@ spec:
       intervalSeconds: 1
       maxSurge: 25%
       maxUnavailable: 25%
+      pre:
+        execNewPod:
+          command: ['touch', 'test.env']
+          containerName: frontend
+        failurePolicy: Abort
       timeoutSeconds: 600
       updatePeriodSeconds: 1
     type: Rolling
   template:
     metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        deployment-config.name: frontend
+        app: frontend
+        deploymentconfig: frontend
     spec:
       containers:
       - env:
-        - name: prodEndpoint
-          value: http://apollo-backend-production.apps-crc.testing
-        image: image-registry.openshift-image-registry.svc:5000/development/frontend:frontendPRD
+        - name: PRODENDPOINT
+          value: http://apollo-backend-development.apps-crc.testing
+        - name: ENDPOINT
+          value: http://apollo-backend-development.apps-crc.testing
+        image: image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:89f6a2e8d025f67fff70265bc7e7c2cbb6b8b7f286558978d1dd363bf53174e9
         imagePullPolicy: Always
-        name: default-container
+        name: frontend
+        ports:
+        - containerPort: 8080
+          protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /src/config
+          name: app-config
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: test-config
+        name: app-config
   test: false
   triggers:
   - type: ConfigChange
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - frontend
+      from:
+        kind: ImageStreamTag
+        name: frontend:latest
+        namespace: development
+      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:89f6a2e8d025f67fff70265bc7e7c2cbb6b8b7f286558978d1dd363bf53174e9
+    type: ImageChange
 status:
   availableReplicas: 1
   conditions:
-  - lastTransitionTime: "2020-07-08T13:40:17Z"
-    lastUpdateTime: "2020-07-08T13:40:17Z"
+  - lastTransitionTime: "2020-07-15T02:17:20Z"
+    lastUpdateTime: "2020-07-15T02:17:20Z"
     message: Deployment config has minimum availability.
     status: "True"
     type: Available
-  - lastTransitionTime: "2020-07-08T19:46:57Z"
-    lastUpdateTime: "2020-07-08T19:47:00Z"
-    message: replication controller "frontend-28" successfully rolled out
+  - lastTransitionTime: "2020-07-15T07:06:37Z"
+    lastUpdateTime: "2020-07-15T07:06:39Z"
+    message: replication controller "frontend-158" successfully rolled out
     reason: NewReplicationControllerAvailable
     status: "True"
     type: Progressing
   details:
     causes:
-    - type: ConfigChange
-    message: config change
-  latestVersion: 28
-  observedGeneration: 28
+    - type: Manual
+    message: manual change
+  latestVersion: 158
+  observedGeneration: 162
   readyReplicas: 1
   replicas: 1
   unavailableReplicas: 0
