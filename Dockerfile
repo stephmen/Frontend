@@ -12,8 +12,7 @@ RUN npm ci --only=production
 COPY . .
 RUN npm install
 RUN chmod a+x endpointscript.sh
-RUN touch /opt/app-root/src/config/dev.env
-RUN chmod a+xwr /opt/app-root/src/config/dev.env
+RUN chmod a+w dev.env
 #RUN npm run build
 #RUN chmod 777 /usr/src/frontend/.next/BUILD_ID
 EXPOSE 7777
