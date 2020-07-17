@@ -31,7 +31,10 @@ spec:
       post:
         execNewPod:
           command:
-          - ./endpointscript.sh
+          - "/bin/sh"
+          - "-c"
+          - >
+            touch text.env
           containerName: frontend
         failurePolicy: Abort
       timeoutSeconds: 600
