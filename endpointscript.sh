@@ -1,8 +1,4 @@
 #!/bin/bash
-echo Creating dev.env
-touch dev.env
-chmod 777 dev.env
-echo checking dev.env
 ls -all dev.env
 echo This is the Apollo Server endpoint:
 echo PRODENDPOINT='"'$PRODENDPOINT'"'
