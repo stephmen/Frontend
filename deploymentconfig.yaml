@@ -62,8 +62,9 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
-        - mountPath: /src/config
-          name: app-config
+        -name: app-config
+          mountPath: /src/config
+          subPath: config.toml
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
