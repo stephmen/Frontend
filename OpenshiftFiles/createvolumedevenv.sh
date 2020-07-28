@@ -1,0 +1,1 @@
+oc set volume dc/frontend --add --name=devconfig --mount-path=/opt/app-root/src/config --type=configmap --configmap-name=dev-env-configmap
