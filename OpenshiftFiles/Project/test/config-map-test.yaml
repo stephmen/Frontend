@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  test.env: "PRODENDPOINT=\"http://apollo-backend-testing.apps-crc.testing\"\nendpoint=\"http://apollo-backend-testing.apps-crc.testing\"\t\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"test.env":"PRODENDPOINT=\"http://apollo-backend-testing.apps-crc.testing\"\nendpoint=\"http://apollo-backend-testing.apps-crc.testing\"\t\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"test-env-configmap","namespace":"testing"}}
+  creationTimestamp: "2020-07-27T10:47:33Z"
+  name: test-env-configmap
+  namespace: testing
+  resourceVersion: "6480621"
+  selfLink: /api/v1/namespaces/testing/configmaps/test-env-configmap
+  uid: 93d063bb-cff6-11ea-ae9c-0ef0e3c74fbe
