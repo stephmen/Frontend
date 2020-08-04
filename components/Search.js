@@ -67,7 +67,7 @@ const AutoComplete = (props) => {
   
     return (
       <SearchStyles>
-        <Downshift onChange={routeToItem} itemToString={item => (item === null ? '' : item.title)}>
+        <Downshift onChange={routeToItem} itemToString={item => (item === null ? '' : item.title)} id="resources-search">
           {({ getInputProps, getItemProps, isOpen, inputValue, highlightedIndex }) => (
         <div>
           <ApolloConsumer>
