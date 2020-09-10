@@ -1,6 +1,6 @@
 import React from 'react';
-import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { useMutation } from '@apollo/client';
 import { CURRENT_USER_QUERY } from './User';
 
 const ADD_TO_CART_MUTATION = gql`
@@ -11,6 +11,7 @@ const ADD_TO_CART_MUTATION = gql`
     }
   }
 `;
+
 function AddToCart({ id }) {
   const [addToCart, { loading }] = useMutation(ADD_TO_CART_MUTATION, {
     variables: {
@@ -20,11 +21,10 @@ function AddToCart({ id }) {
   });
   return (
     <button type="button" disabled={loading} onClick={addToCart}>
-      {/* <button disabled={loading} onClick={() => addToCart({ variables: { id } })}></button> */}
       Add{loading && 'ing'} To Cart 🛒
     </button>
   );
-};
+}
 
 export default AddToCart;
 export { ADD_TO_CART_MUTATION };
