@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import Item from "./Item";
-import withApollo from "../lib/nextApollo";
+
 import Pagination from './Pagination';
 import { perPage } from '../config';
 
@@ -62,4 +62,4 @@ const Items = (props) => {
 
 
 export { ALL_ITEMS_QUERY };
-export default withApollo(Items);
+export default Items;

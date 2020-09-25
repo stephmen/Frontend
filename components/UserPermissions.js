@@ -6,7 +6,6 @@ import gql from "graphql-tag";
 import Table from "./styles/Table";
 import SickButton from "./styles/SickButton";
 import PropTypes from "prop-types";
-import withApollo from "../lib/nextApollo";
 
 
 const UPDATE_PERMISSIONS_MUTATION = gql`

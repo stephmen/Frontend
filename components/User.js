@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import PropTypes from "prop-types";
-import withApollo from "../lib/nextApollo";
+
 
 const CURRENT_USER_QUERY = gql`
   query {

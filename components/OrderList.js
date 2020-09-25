@@ -8,7 +8,7 @@ import gql from 'graphql-tag';
 import Error from './ErrorMessage';
 import formatMoney from '../lib/formatMoney';
 import OrderItemStyles from './styles/OrderItemStyles';
-import withApollo from '../lib/nextApollo'
+
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {

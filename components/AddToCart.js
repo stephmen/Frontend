@@ -1,6 +1,8 @@
 import React from 'react';
+//import { useMutation } from '@apollo/client';
 import { useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { gql } from '@apollo/client'
+//import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from './User';
 
 const ADD_TO_CART_MUTATION = gql`

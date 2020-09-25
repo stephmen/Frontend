@@ -5,7 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 import PaginationStyles from "./styles/PaginationStyles";
 import { perPage } from "../config";
-import withApollo from "../lib/nextApollo";
+
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
