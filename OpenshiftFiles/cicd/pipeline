@@ -1,0 +1,96 @@
+try{
+    timeout(time: 20, unit: 'MINUTES') {
+    node('maven'){
+        stage('Build Image from GitHub & Deploy in development'){
+        openshift.withCluster() {
+               openshift.withProject('development') {
+                   def bld = openshift.startBuild('frontend')
+                   bld.untilEach(1) {
+                       return it.object().status.phase == "Complete"
+            }
+        }
+    } 
+        stage('Validate deployment in development'){
+        openshift.withCluster() {
+                openshift.withProject('development'){
+                    def latestDeploymentVersion = openshift.selector('dc','frontend').object().status.latestVersion
+                    def rc = openshift.selector('rc', "frontend-${latestDeploymentVersion}")
+                    rc.untilEach(1){
+                    def rcMap = it.object()
+                        return (rcMap.status.replicas.equals(rcMap.status.readyReplicas))
+            }
+        }
+    } 
+    stage('Add tag prmoteQA to latest Image') {
+            openshift.withCluster() {
+            openshift.tag( 'development/frontend:latest', 'development/frontend:frontendQA')
+              
+}
+    stage('approval') {
+                            timeout(time: 2, unit: 'DAYS') {
+                            input message: "Start Testing Rollout ?"
+                        }
+     stage('deploy in test Rollout') {
+            openshift.withCluster() {
+              openshift.withProject('testing') {
+                def dc = openshift.selector('dc', 'frontend')
+                dc.rollout().latest()
+              }
+            }
+    }
+     stage('verify deploy in testing'){
+        openshift.withCluster() {
+                openshift.withProject('testing'){
+                    def latestDeploymentVersion = openshift.selector('dc','frontend').object().status.latestVersion
+                    def rc = openshift.selector('rc', "frontend-${latestDeploymentVersion}")
+                    rc.untilEach(){
+                    def rcMap = it.object()
+                        return (rcMap.status.replicas.equals(rcMap.status.readyReplicas))
+            }
+        }
+    } 
+     }
+    }
+    stage('approval') {
+                            timeout(time: 2, unit: 'DAYS') {
+                            input message: "Start Production Rollout ?"
+                        }
+                            stage('Deploy in Production Image Tag') {
+                                openshift.withCluster() {
+                                openshift.tag( 'development/frontend:latest', 'development/frontend:frontendPRD')
+                    } 
+                    }
+                                stage('Deploy in Production Rollout') {
+                                openshift.withCluster() {
+                                openshift.withProject('production') {
+                                def dc = openshift.selector('dc', 'frontend')
+                                dc.rollout().latest()
+              }
+            }
+     stage('Verify Deployment in Production'){
+        openshift.withCluster() {
+                openshift.withProject('production'){
+                    def latestDeploymentVersion = openshift.selector('dc','frontend').object().status.latestVersion
+                    def rc = openshift.selector('rc', "frontend-${latestDeploymentVersion}")
+                    rc.untilEach(1){
+                    def rcMap = it.object()
+                        return (rcMap.status.replicas.equals(rcMap.status.readyReplicas))
+            }
+        }
+            }  
+	}     
+          }
+          }
+    }
+    }
+    }
+    }
+    }
+    }
+catch (err) {
+   echo "in catch block"
+   echo "Caught: ${err}"
+   currentBuild.result = 'FAILURE'
+   throw err
+}
+ 

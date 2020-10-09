@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import PropTypes from "prop-types";
-import withApollo from "../lib/nextApollo";
+
 
 const CURRENT_USER_QUERY = gql`
   query {
@@ -28,7 +28,7 @@ const CURRENT_USER_QUERY = gql`
 const User = props => {
   const { loading, data, error } = useQuery(CURRENT_USER_QUERY, {
     onCompleted: data => {},
-    ssrMode: true
+    //ssrMode: true
   });
   if (loading) return <p>Loading</p>;
   return <div>{props.children({ data })}</div>;

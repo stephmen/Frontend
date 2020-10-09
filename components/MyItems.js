@@ -4,7 +4,6 @@ import gql from "graphql-tag";
 import styled from "styled-components";
 import User from "./User";
 import MyItem from "./MyItem";
-import withApollo from "../lib/nextApollo";
 import Pagination from "./Pagination";
 import { perPage } from "../config";
 

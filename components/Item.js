@@ -9,7 +9,7 @@ import DeleteItem from './DeleteItem';
 import AddToCart from './AddToCart';
 
 
-const Item = props => {
+const Item = (props) => {
   
   
   Item.propTypes = {
@@ -42,5 +42,8 @@ const Item = props => {
     );
   }
 
+  Item.propTypes = {
+    item: PropTypes.object.isRequired,
+  };
   export default Item
 

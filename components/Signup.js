@@ -6,7 +6,7 @@ import gql from "graphql-tag";
 import Router from "next/router";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
-import withApollo from "../lib/nextApollo";
+
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION($email: String!, $name: String!, $password: String!) {
