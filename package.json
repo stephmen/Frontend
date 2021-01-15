@@ -38,6 +38,7 @@
     "graphql": "^14.6.0",
     "graphql-tag": "^2.11.0",
     "isomorphic-unfetch": "^3.0.0",
+    "jest": "^26.5.3",
     "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
     "material-ui": "^0.20.2",

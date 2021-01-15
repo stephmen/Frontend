@@ -1,7 +1,6 @@
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-import PropTypes from "prop-types";
-
+import { useQuery } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
+import PropTypes from 'prop-types';
 
 const CURRENT_USER_QUERY = gql`
   query {
@@ -25,17 +24,17 @@ const CURRENT_USER_QUERY = gql`
   }
 `;
 
-const User = props => {
+const User = (props) => {
   const { loading, data, error } = useQuery(CURRENT_USER_QUERY, {
-    onCompleted: data => {},
-    //ssrMode: true
+    onCompleted: (data) => {},
+    // ssrMode: true
   });
   if (loading) return <p>Loading</p>;
   return <div>{props.children({ data })}</div>;
 };
 
 User.propTypes = {
-  children: PropTypes.func.isRequired
+  children: PropTypes.func.isRequired,
 };
 
 export { CURRENT_USER_QUERY };

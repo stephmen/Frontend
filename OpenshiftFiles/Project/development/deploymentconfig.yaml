@@ -88,7 +88,7 @@ spec:
         kind: ImageStreamTag
         name: frontend:latest
         namespace: development
-      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:6c876a5870b4fce680a93ecb9940457bc5bd06b87cc553c09d864e27b58c27be
+      lastTriggeredImage: 
     type: ImageChange
 status:
   availableReplicas: 1

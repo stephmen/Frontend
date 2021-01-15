@@ -1,0 +1,198 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: master
+    app.openshift.io/vcs-uri: 'https://github.com/stephmen/Frontend'
+    openshift.io/generated-by: OpenShiftWebConsole
+  selfLink: /apis/apps.openshift.io/v1/namespaces/development/deploymentconfigs/frontend
+  resourceVersion: '342079'
+  name: frontend
+  uid: a1f00936-a288-47c3-be92-9f7d5f78a56b
+  creationTimestamp: '2021-01-07T18:16:13Z'
+  generation: 2
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2021-01-07T18:16:13Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+          'f:strategy':
+            'f:activeDeadlineSeconds': {}
+            'f:rollingParams':
+              .: {}
+              'f:intervalSeconds': {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+              'f:timeoutSeconds': {}
+              'f:updatePeriodSeconds': {}
+            'f:type': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:creationTimestamp': {}
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:deploymentconfig': {}
+            'f:spec':
+              .: {}
+              'f:containers':
+                .: {}
+                'k:{"name":"frontend"}':
+                  .: {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2021-01-07T19:34:14Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:containers':
+                'k:{"name":"frontend"}':
+                  'f:image': {}
+          'f:triggers': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:details':
+            .: {}
+            'f:causes': {}
+            'f:message': {}
+          'f:latestVersion': {}
+          'f:observedGeneration': {}
+          'f:replicas': {}
+          'f:unavailableReplicas': {}
+          'f:updatedReplicas': {}
+  namespace: development
+  labels:
+    app: frontend
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/instance: frontend
+    app.kubernetes.io/part-of: frontend
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - frontend
+        from:
+          kind: ImageStreamTag
+          namespace: development
+          name: 'frontend:latest'
+        lastTriggeredImage: >-
+          image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:e5c308e3589bf8d018282d77ff54715bf08d4434cbc559419e52f37a271368fc
+    - type: ConfigChange
+  replicas: 1
+  revisionHistoryLimit: 10
+  test: false
+  selector:
+    app: frontend
+    deploymentconfig: frontend
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: frontend
+        deploymentconfig: frontend
+    spec:
+      containers:
+        - env:
+          - name: PRODENDPOINT
+            value: http://apollo-backend-development.apps-crc.testing
+          - name: ENDPOINT
+            value: http://apollo-backend-development.apps-crc.testing
+          - name: frontend
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/development/frontend@sha256:e5c308e3589bf8d018282d77ff54715bf08d4434cbc559419e52f37a271368fc
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  latestVersion: 1
+  observedGeneration: 2
+  replicas: 1
+  updatedReplicas: 1
+  availableReplicas: 0
+  unavailableReplicas: 1
+  details:
+    message: config change
+    causes:
+      - type: ConfigChange
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2021-01-07T18:25:03Z'
+      lastTransitionTime: '2021-01-07T18:23:03Z'
+      reason: NewReplicationControllerAvailable
+      message: replication controller "frontend-1" successfully rolled out
+    - type: Available
+      status: 'False'
+      lastUpdateTime: '2021-01-07T19:34:14Z'
+      lastTransitionTime: '2021-01-07T19:34:14Z'
+      message: Deployment config does not have minimum availability.

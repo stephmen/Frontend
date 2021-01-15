@@ -3,11 +3,9 @@ import styled from 'styled-components';
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import Nav from './Nav';
-
 import Cart from './Cart';
-import UserMenu from './UserMenu'
+import UserMenu from './UserMenu';
 import Search from './Search';
-
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -29,10 +27,11 @@ const Logo = styled.h1`
   transform: skew(0deg);
   a {
     padding: 0.5rem 1rem;
-    background: ${props => props.theme.blue};
+    background: ${(props) => props.theme.blue};
     color: white;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     text-decoration: none;
+    border-radius: 15px 10px;
   }
   @media (max-width: 1300px) {
     margin: 0;
@@ -44,13 +43,13 @@ const StyledHeader = styled.header`
   .top-bar {
     display: flex;
     grid-template-columns: auto 2fr;
-    margin-right: 80px; 
+    margin-right: 80px;
     justify-content: space-between;
   }
   .bar {
-    border-bottom: 10px solid ${props => props.theme.black};
+    border-bottom: 10px solid ${(props) => props.theme.black};
     display: flex;
-    grid-template-columns: auto 2fr; 
+    grid-template-columns: auto 2fr;
     justify-content: space-between;
     align-items: stretch;
     @media (max-width: 1300px) {
@@ -62,7 +61,7 @@ const StyledHeader = styled.header`
   .sub-bar {
     display: grid;
     grid-template-columns: 1fr auto;
-    border-bottom: 1px solid ${props => props.theme.lightgrey};
+    border-bottom: 1px solid ${(props) => props.theme.lightgrey};
     z-index: -1;
   }
 `;
@@ -72,13 +71,12 @@ const Header = () => (
     <div className="top-bar">
       <Logo>
         <Link href="/items">
-          <a>This is a test {process.env.NODE_ENV}</a>
-          </Link>
+          <a>My-Eccom</a>
+        </Link>
       </Logo>
       <Nav />
     </div>
-    <div className="bar">
-    </div>
+    <div className="bar" />
     <div className="sub-bar">
       <Search />
     </div>

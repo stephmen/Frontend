@@ -1,16 +1,17 @@
-import Link from "next/link";
-import NavStyles from "./styles/NavStyles";
-import User from "./User";
-import Form from "./styles/Form.js";
-import RequestReset from "./RequestReset";
-import Styled from "styled-components";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import Link from 'next/link';
+import Styled from 'styled-components';
+import NavStyles from './styles/NavStyles';
+import User from './User';
+import Form from './styles/Form.js';
+import RequestReset from './RequestReset';
 
 const Underline = Styled.div` 
 text-decoration: underline;
-color: ${props => props.theme.black};
-background-color: ${props => props.theme.blue};
+color: ${(props) => props.theme.black};
+background-color: ${(props) => props.theme.blue};
 hover: {
-  background-color: ${props => props.theme.blue}
+  background-color: ${(props) => props.theme.blue}
 }
 `;
 
@@ -24,12 +25,12 @@ const Account = () => (
             <Form>
               <label>User Name: {me.name}</label>
               <label>User Email: {me.email}</label>
-              
-              <br></br>
+              <br />
               <Link href="/requestreset">
-                <a><Underline>
-                  <span>Change Your Password</span>
-                </Underline>
+                <a>
+                  <Underline>
+                    <span>Change Your Password</span>
+                  </Underline>
                 </a>
               </Link>
             </Form>
