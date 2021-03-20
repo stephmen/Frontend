@@ -1,0 +1,9 @@
+spec:
+  template:
+    spec:
+      containers:
+        - command: ["./endpointscript.sh"]
+          image: image-registry.openshift-image-registry.svc:5000/development/frontend:latest
+          name: frontend
+       
+              
