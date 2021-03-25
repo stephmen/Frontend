@@ -1,0 +1,44 @@
+spec:
+      containers:
+      - command:
+        - ./endpointscript.sh
+        env:
+        - name: app.version
+          value: "1.0"
+        - name: AUTHORS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: AUTHORS_API_KEY
+              name: authors-secret-api
+        image: image-registry.openshift-image-registry.svc:5000/development/myeccom-tekton@sha256:5f6935b78e33335e558532a51244ff62ce435b37a2463f1b8f4fb3f124b711bc
+        imagePullPolicy: IfNotPresent
+        name: myeccom-tekton
+        ports:
+        - containerPort: 7777
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 7777
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /opt/app-root/src/config
+          name: testconfig
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: test-env-configmap
+        name: testconfig
