@@ -1,0 +1,289 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/connects-to: '[{"apiVersion":"apps/v1","kind":"Deployment","name":"apollo-backend"}]'
+    deployment.kubernetes.io/revision: "16"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"myeccom-tekton:latest","namespace":"development"},"fieldPath":"spec.template.spec.containers[?(@.name==\"myeccom-tekton\")].image"}]'
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2021-03-23T11:57:57Z"
+  generation: 19
+  labels:
+    app: myeccom-tekton
+    app.kubernetes.io/component: myeccom-tekton
+    app.kubernetes.io/instance: myeccom-tekton
+    app.kubernetes.io/name: myeccom
+    app.version: "1.0"
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:app.kubernetes.io/name: {}
+          f:app.version: {}
+    manager: kubectl-label
+    operation: Update
+    time: "2021-03-23T11:57:59Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:app.openshift.io/connects-to: {}
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"myeccom-tekton"}:
+                f:command: {}
+                f:ports:
+                  k:{"containerPort":7777,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:protocol: {}
+    manager: Mozilla
+    operation: Update
+    time: "2021-03-24T18:06:37Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"myeccom-tekton"}:
+                f:volumeMounts:
+                  k:{"mountPath":"/opt/app-root/src/config"}:
+                    f:name: {}
+            f:volumes:
+              k:{"name":"testconfig"}:
+                .: {}
+                f:configMap:
+                  .: {}
+                  f:defaultMode: {}
+                  f:name: {}
+                f:name: {}
+    manager: kubectl-edit
+    operation: Update
+    time: "2021-03-24T19:08:44Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"myeccom-tekton"}:
+                f:image: {}
+    manager: openshift-controller-manager
+    operation: Update
+    time: "2021-03-24T19:45:04Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:image.openshift.io/triggers: {}
+          f:openshift.io/generated-by: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:deployment: {}
+        f:strategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:openshift.io/generated-by: {}
+            f:labels:
+              .: {}
+              f:deployment: {}
+          f:spec:
+            f:containers:
+              k:{"name":"myeccom-tekton"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"AUTHORS_API_KEY"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:secretKeyRef:
+                        .: {}
+                        f:key: {}
+                        f:name: {}
+                  k:{"name":"app.version"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports: {}
+                f:readinessProbe:
+                  .: {}
+                  f:failureThreshold: {}
+                  f:httpGet:
+                    .: {}
+                    f:path: {}
+                    f:port: {}
+                    f:scheme: {}
+                  f:initialDelaySeconds: {}
+                  f:periodSeconds: {}
+                  f:successThreshold: {}
+                  f:timeoutSeconds: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/opt/app-root/src/config"}:
+                    .: {}
+                    f:mountPath: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes: {}
+    manager: oc
+    operation: Update
+    time: "2021-03-24T19:45:21Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:unavailableReplicas: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-24T19:55:22Z"
+  name: myeccom-tekton
+  namespace: development
+  resourceVersion: "7367330"
+  selfLink: /apis/apps/v1/namespaces/development/deployments/myeccom-tekton
+  uid: e1e60b4e-fc6a-4253-9667-191b291f238f
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: myeccom-tekton
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deployment: myeccom-tekton
+    spec:
+      volumes:
+      - name: testconfig
+        configMap:
+          defaultMode: 420
+          name: test-env-configmap
+      containers:
+      - command:
+        - ./endpointscript.sh
+        env:
+        - name: app.version
+          value: "1.0"
+        - name: AUTHORS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: AUTHORS_API_KEY
+              name: authors-secret-api
+        image: image-registry.openshift-image-registry.svc:5000/development/myeccom-tekton@sha256:a46478bbe970706e556264b7248de3f9583715deb1057cc1a45c96d7a2ed7c0b
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - name: testconfig
+          mountPath: /opt/app-root/src/config
+        name: myeccom-tekton
+        ports:
+        - containerPort: 7777
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 7777
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: 
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2021-03-24T18:07:13Z"
+    lastUpdateTime: "2021-03-24T18:07:13Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2021-03-24T19:55:22Z"
+    lastUpdateTime: "2021-03-24T19:55:22Z"
+    message: ReplicaSet "myeccom-tekton-5587c45f74" has timed out progressing.
+    reason: ProgressDeadlineExceeded
+    status: "False"
+    type: Progressing
+  observedGeneration: 19
+  readyReplicas: 1
+  replicas: 2
+  unavailableReplicas: 1
+  updatedReplicas: 1
