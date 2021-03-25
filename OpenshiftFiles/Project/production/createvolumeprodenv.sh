@@ -1,1 +1,2 @@
 oc set volume dc/frontend --add --name=prodconfig --mount-path=/opt/app-root/src/config --type=configmap --configmap-name=prod-env-configmap
+oc set volume deployment/myeccom-tekton --add --name=prodconfig --mount-path=/opt/app-root/src/config --type=configmap --configmap-name=prod-env-configmap
