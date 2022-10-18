@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: "2022-04-05T21:26:10Z"
+  generation: 1
+  name: myeccom
+  namespace: default
+  resourceVersion: "1929057"
+  uid: 3d0963b0-394f-4b4e-b5a4-9726c662a81c
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: myeccom.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: myeccom
+            port:
+              number: 7777
+        path: /
+        pathType: Exact
+status:
+  loadBalancer:
+    ingress:
+    - hostname: myeccom.com
