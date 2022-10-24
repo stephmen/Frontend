@@ -14,7 +14,8 @@ COPY . .
 RUN npm install
 RUN chmod a+x endpointscript.sh
 RUN npm run build
-RUN chmod 777 /usr/src/frontend/.next/BUILD_ID
+# RUN chmod 777 /usr/src/frontend/.next/BUILD_ID
+RUN chmod 777 /usr/src/frontend/.next
 EXPOSE 7777
 # this is for kubernetes CMD [ "npm", "run", "start" ]
 #CMD [ "npm", "run", "dev" ]
