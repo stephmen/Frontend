@@ -42,7 +42,7 @@
     "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
     "material-ui": "^0.20.2",
-    "next": "^9.2.2",
+    "next": "^12.1.0",
     "next-with-apollo": "^4.3.0",
     "nprogress": "^0.2.0",
     "react": "^16.13.0",
